@@ -11,29 +11,40 @@ RIGHT = 0
 class Snake:
     def __init__(self):
         self.x = 0 
-        self.segments = []
+        self.segmentKeeper = []
         self.create()
-        self.head = self.segments[0]
+        self.head = self.segmentKeeper[0]
 
     def create(self):
         for i in range(0 ,3):
-            snake = Turtle(shape="square")
-            snake.penup()
-            snake.setx(self.x)
-            snake.color("white")
+            segment = Turtle(shape="square")
+            segment.penup()
+            segment.setx(self.x)
+            segment.color("white")
             self.x = self.x - 20
-            self.segments.append(snake)
+            self.segmentKeeper.append(segment)
 
+    #Code can be improved but works for now 
+
+    def extend(self):
+        segment = Turtle(shape="square")
+        segment.penup()
+        segment.setx(self.x)
+        segment.color("white")
+        segment.goto(self.segmentKeeper[-1].position())
+        self.segmentKeeper.append(segment)
+        
+        
     #movement logic 
     def move(self):
-        for seg_num in range(len(self.segments) - 1 , 0 , -1):
-            loc = self.segments[seg_num - 1].pos()
+        for seg_num in range(len(self.segmentKeeper) - 1 , 0 , -1):
+            loc = self.segmentKeeper[seg_num - 1].pos()
             #print(f"{seg_num} : {loc}")
-            self.segments[seg_num].goto(loc)
+            self.segmentKeeper[seg_num].goto(loc)
 
         self.head.forward(MOVE_DISTANCE)
     
-    #snake movement
+    #snake movement with KEYBIND
     def up(self):
         if self.head.heading() != DOWN:
             self.head.setheading(UP)
