@@ -1,6 +1,4 @@
 # Retro-Snake
-Retro Snake Game in Python 
-
 Retro Snake game made in Python using OOPs and Turtle 
 
 <img width="602" alt="Screenshot 2024-07-14 at 1 44 06 AM" src="https://github.com/user-attachments/assets/2e0163c8-be91-464c-ad8c-b14ade38c9c6"> 
