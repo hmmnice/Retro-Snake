@@ -17,6 +17,9 @@ screen.listen()
 food = Food()
 scoreboard = Scoreboard()
 
+
+
+
 #Key Binds to Play W A S D 
 screen.onkey(snake.up , "w")
 screen.onkey(snake.down , "s")
